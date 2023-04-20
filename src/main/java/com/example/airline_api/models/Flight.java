@@ -86,4 +86,20 @@ public class Flight {
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    public void addPassengers(Passenger passenger){
+        this.passengers.add(passenger);
+    }
+
+    public void removePassengers(Passenger passenger){
+        this.passengers.remove(passenger);
+    }
 }
