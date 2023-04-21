@@ -41,7 +41,7 @@ public class FlightService {
         return flightRepository.save(flight);
     }
 
-    public Flight updateService(FlightDTO flightDTO, Long id) {
+    public Flight updateFlight(FlightDTO flightDTO, Long id) {
         Flight flight = flightRepository.findById(id).get();
         flight.setDepartureDate(flightDTO.getDestination());
         flight.setCapacity(flightDTO.getCapacity());
@@ -52,10 +52,9 @@ public class FlightService {
         }
         return flightRepository.save(flight);
     }
-}
 
-//    public Flight saveFlight(Flight Long){
-//        Flight flight = new Flight("Dubai", 400, "10th May", "6am");
-//
-//    }
+    public void deleteFlight(Long id) {
+        flightRepository.deleteById(id);
+    }
+}
 

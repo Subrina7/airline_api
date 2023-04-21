@@ -24,35 +24,32 @@ public class FlightController {
 
     @GetMapping
     public ResponseEntity<List<Flight>> getAllFLights(){
-        return new ResponseEntity(flightRepository.findAll(), HttpStatus.OK)
+        return new ResponseEntity(flightRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Flight>> getChocolate(@PathVariable Long id) {
+    public ResponseEntity<Optional<Flight>> getFlight(@PathVariable Long id) {
         return new ResponseEntity(flightService.findFlightById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Flight> postChocolate(@RequestBody FlightDTO flightDTO){
+    public ResponseEntity<Flight> postFlight(@RequestBody FlightDTO flightDTO){
         Flight flight = flightService.saveFlight(flightDTO);
         return new ResponseEntity<>(flight, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Flight> updateChocolate(
+    public ResponseEntity<Flight> updateFlight(
             @RequestBody FlightDTO flightDTO,
             @PathVariable Long id){
-        Flight flight = flightService.updateService(flightDTO, id);
+        Flight flight = flightService.updateFlight(flightDTO, id);
         return new ResponseEntity<>(flight, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> deleteChocolate(@PathVariable Long id){
+    public ResponseEntity<Long> deleteFlight(@PathVariable Long id){
         flightService.deleteFlight(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-
-
-
 
 }
